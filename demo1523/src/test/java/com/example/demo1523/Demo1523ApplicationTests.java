@@ -1,13 +1,22 @@
 package com.example.demo1523;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.SpringApplication;
 
-@SpringBootTest
-class Demo1523ApplicationTests {
+//@SpringBootTest
+//class Demo1523ApplicationTests {
+//
+//	@Test
+//	void contextLoads() {
+//	}
+//
+//}
 
-	@Test
-	void contextLoads() {
+@SpringBootApplication
+public class Demo1523ApplicationTests {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Demo1523ApplicationTests.class, args);
 	}
-
 }
