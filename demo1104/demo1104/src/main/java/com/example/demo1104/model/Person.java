@@ -1,8 +1,6 @@
 package com.example.demo1104.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -10,6 +8,8 @@ import lombok.Data;
 @Table(name = "person")
 public class Person {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(name = "name")
     private String name;
 }
