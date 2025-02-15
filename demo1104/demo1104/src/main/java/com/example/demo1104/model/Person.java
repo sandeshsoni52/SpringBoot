@@ -1,5 +1,6 @@
 package com.example.demo1104.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -11,5 +12,11 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name = "name")
+    @JsonProperty("name")
     private String name;
+
+    @Override
+    public String toString() {
+        return "Person{id=" + id + ", name='" + name + "'}";
+    }
 }
