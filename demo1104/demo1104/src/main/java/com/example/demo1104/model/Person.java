@@ -15,6 +15,10 @@ public class Person {
     @JsonProperty("name")
     private String name;
 
+    @Column(name = "email")
+    @JsonProperty("email")
+    private String email;
+
     @Override
     public String toString() {
         return "Person{id=" + id + ", name='" + name + "'}";
