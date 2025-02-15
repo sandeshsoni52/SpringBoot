@@ -15,6 +15,7 @@ public class PersonController {
 
     @PostMapping("/addPerson")
     public void addPerson(@RequestBody Person person){
+        System.out.println("Received Person: " + person);
         repo.save(person);
     }
 }
