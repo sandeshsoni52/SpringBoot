@@ -1,26 +1,26 @@
 {
   "categories": {
-    "Undergraduate": {
-      "Engineering": {
-        "JawaharlalNehruEngineeringCollege": [
-          "B Tech Computer Science and Engineering",
-          "B Tech Mechanical Engineering"
+    "pogram1": {
+      "f1": {
+        "i1": [
+          "d1_i1",
+          "d2_i1"
         ],
-        "SchoolOfEngineeringAndTechnology": [
-          "B Tech Robotics and AI",
-          "B Tech Civil Engineering"
+        "i2": [
+          "d3_i2",
+          "d4_i2"
         ]
       },
-      "Science": {
-        "Dr.G.Y.PathrikarCollegeOfComputerScienceAndInformationTechnology": [
+      "f2": {
+        "i3": [
           "B Sc Hons. Computer Science",
           "B Sc Hons. Information Technology"
         ]
       }
     },
-    "Postgraduate": {
-      "Management": {
-        "InstituteOfManagementAndResearch": [
+    "program2": {
+      "f3": {
+        "i4": [
           "MBA Business Analytics",
           "MBA Finance"
         ]

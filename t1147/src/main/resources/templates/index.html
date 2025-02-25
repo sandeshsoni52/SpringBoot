@@ -6,12 +6,12 @@
         document.addEventListener("DOMContentLoaded", function() {
             fetchCategories();
 
-            document.getElementById("categoryDropdown").addEventListener("change", function() {
+            document.getElementById("levelDropdown").addEventListener("change", function() {
                 fetchInstitutes(this.value);
             });
 
             document.getElementById("instituteDropdown").addEventListener("change", function() {
-                fetchCourses(document.getElementById("categoryDropdown").value, this.value);
+                fetchCourses(document.getElementById("levelDropdown").value, this.value);
             });
         });
 
@@ -19,8 +19,8 @@
             fetch("/api/courses/categories")
                 .then(response => response.json())
                 .then(data => {
-                    let dropdown = document.getElementById("categoryDropdown");
-                    dropdown.innerHTML = `<option value="">Select Category</option>`;
+                    let dropdown = document.getElementById("levelDropdown");
+                    dropdown.innerHTML = `<option value="">Select LEVEL</option>`;
                     data.forEach(category => {
                         dropdown.innerHTML += `<option value="${category}">${category}</option>`;
                     });
@@ -33,7 +33,7 @@
                 .then(response => response.json())
                 .then(data => {
                     let dropdown = document.getElementById("instituteDropdown");
-                    dropdown.innerHTML = `<option value="">Select Institute</option>`;
+                    dropdown.innerHTML = `<option value="">Select FACULTY</option>`;
                     data.forEach(institute => {
                         dropdown.innerHTML += `<option value="${institute}">${institute}</option>`;
                     });
@@ -47,7 +47,7 @@
                 .then(response => response.json())
                 .then(data => {
                     let dropdown = document.getElementById("courseDropdown");
-                    dropdown.innerHTML = `<option value="">Select Course</option>`;
+                    dropdown.innerHTML = `<option value="">Select INSTITUTE</option>`;
                     data.forEach(course => {
                         dropdown.innerHTML += `<option value="${course}">${course}</option>`;
                     });
@@ -56,10 +56,12 @@
     </script>
 </head>
 <body>
-<h2>Select Your Course</h2>
+<h2>Dynamic Dropdown1354</h2>
 
-<select id="categoryDropdown"><option>Select Category</option></select>
-<select id="instituteDropdown"><option>Select Institute</option></select>
-<select id="courseDropdown"><option>Select Course</option></select>
+<select id="levelDropdown"><option>Select Level</option></select>
+<select id="instituteDropdown"><option>Select Faculty</option></select>
+<select id="courseDropdown"><option>Select Institute</option></select>
+<select id="courseDropdown"><option>Select Degree</option></select>
+
 </body>
 </html>
