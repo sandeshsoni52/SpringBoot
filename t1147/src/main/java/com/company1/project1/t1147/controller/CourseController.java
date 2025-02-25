@@ -20,7 +20,7 @@ public class CourseController {
     /**
      * Get all available categories.
      */
-    @GetMapping("/categories")
+    @GetMapping("/levels")
     public List<String> getCategories() {
         return courseService.getCourses().getCategories().keySet().stream().toList();
     }
@@ -28,17 +28,17 @@ public class CourseController {
     /**
      * Get institutes based on selected category.
      */
-    @GetMapping("/institutes/{category}")
-    public List<String> getInstitutes(@PathVariable String category) {
+    @GetMapping("/faculties/{category}")
+    public List<String> getFaculties(@PathVariable String category) {
         return courseService.getCourses().getCategories().get(category).keySet().stream().toList();
     }
 
     /**
      * Get courses based on category and institute.
      */
-    @GetMapping("/courses/{category}/{institute}")
-    public List<String> getCourses(@PathVariable String category, @PathVariable String institute) {
-        return courseService.getCourses().getCategories().get(category).get(institute).values().stream()
+    @GetMapping("/courses/{category}/{faculty}")
+    public List<String> getCourses(@PathVariable String category, @PathVariable String faculty) {
+        return courseService.getCourses().getCategories().get(category).get(faculty).values().stream()
                 .flatMap(List::stream)
                 .collect(Collectors.toList());
     }
