@@ -1,10 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Dynamic Dropdown</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetchCategories();
+
+            document.getElementById("categoryDropdown").addEventListener("change", function() {
+                fetchInstitutes(this.value);
+            });
+
+            document.getElementById("instituteDropdown").addEventListener("change", function() {
+                fetchCourses(document.getElementById("categoryDropdown").value, this.value);
+            });
+        });
+
+        function fetchCategories() {
+            fetch("/api/courses/categories")
+                .then(response => response.json())
+                .then(data => {
+                    let dropdown = document.getElementById("categoryDropdown");
+                    dropdown.innerHTML = `<option value="">Select Category</option>`;
+                    data.forEach(category => {
+                        dropdown.innerHTML += `<option value="${category}">${category}</option>`;
+                    });
+                });
+        }
+
+        function fetchInstitutes(category) {
+            if (!category) return;
+            fetch(`/api/courses/institutes/${category}`)
+                .then(response => response.json())
+                .then(data => {
+                    let dropdown = document.getElementById("instituteDropdown");
+                    dropdown.innerHTML = `<option value="">Select Institute</option>`;
+                    data.forEach(institute => {
+                        dropdown.innerHTML += `<option value="${institute}">${institute}</option>`;
+                    });
+                    document.getElementById("courseDropdown").innerHTML = `<option value="">Select Course</option>`;
+                });
+        }
+
+        function fetchCourses(category, institute) {
+            if (!category || !institute) return;
+            fetch(`/api/courses/courses/${category}/${institute}`)
+                .then(response => response.json())
+                .then(data => {
+                    let dropdown = document.getElementById("courseDropdown");
+                    dropdown.innerHTML = `<option value="">Select Course</option>`;
+                    data.forEach(course => {
+                        dropdown.innerHTML += `<option value="${course}">${course}</option>`;
+                    });
+                });
+        }
+    </script>
 </head>
 <body>
+<h2>Select Your Course</h2>
 
+<select id="categoryDropdown"><option>Select Category</option></select>
+<select id="instituteDropdown"><option>Select Institute</option></select>
+<select id="courseDropdown"><option>Select Course</option></select>
 </body>
 </html>
