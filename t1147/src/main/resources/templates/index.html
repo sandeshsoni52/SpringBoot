@@ -11,7 +11,7 @@
             });
 
             document.getElementById("facultyDropdown").addEventListener("change", function() {
-                fetchInstituteMIXDegree(document.getElementById("levelDropdown").value, this.value);
+                fetchDegree(document.getElementById("levelDropdown").value, this.value);
             });
         });
 
@@ -37,17 +37,16 @@
                     data.forEach(faculty => {
                         dropdown.innerHTML += `<option value="${faculty}">${faculty}</option>`;
                     });
-                    document.getElementById("courseDropdown").innerHTML = `<option value="">Select Course</option>`;
                 });
         }
 
-        function fetchInstituteMIXDegree(category, faculty) {
+        function fetchDegree(category, faculty) {
             if (!category || !faculty) return;
             fetch(`/api/courses/courses/${category}/${faculty}`)
                 .then(response => response.json())
                 .then(data => {
-                    let dropdown = document.getElementById("courseDropdown");
-                    dropdown.innerHTML = `<option value="">Select INSTITUTE</option>`;
+                    let dropdown = document.getElementById("degreeDropdown");
+                    dropdown.innerHTML = `<option value="">Select DEGREE</option>`;
                     data.forEach(course => {
                         dropdown.innerHTML += `<option value="${course}">${course}</option>`;
                     });
@@ -56,12 +55,12 @@
     </script>
 </head>
 <body>
-<h2>Dynamic Dropdown1437</h2>
+<h2>Dynamic Dropdown1643</h2>
 
 <select id="levelDropdown"><option>Select Level</option></select>
 <select id="facultyDropdown"><option>Select Faculty</option></select>
-<select id="courseDropdown"><option>Select Institute</option></select>
-<select id="courseDropdown"><option>Select Degree</option></select>
+<select id="instituteDropdown"><option>Select Institute</option></select>
+<select id="degreeDropdown"><option>Select Degree</option></select>
 
 </body>
 </html>
