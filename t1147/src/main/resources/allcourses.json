@@ -1,6 +1,6 @@
 {
   "categories": {
-    "pogram1": {
+    "level1": {
       "f1": {
         "i1": [
           "d1_i1",
@@ -18,7 +18,7 @@
         ]
       }
     },
-    "program2": {
+    "level2": {
       "f3": {
         "i4": [
           "MBA Business Analytics",
