@@ -1,0 +1,28 @@
+{
+  "undergraduate": {
+    "engineering": {
+      "JawaharlalNehruEngineeringCollege": [
+        "B Tech Computer Science and Engineering",
+        "B Tech Mechanical Engineering"
+      ],
+      "SchoolOfEngineeringAndTechnology": [
+        "B Tech Robotics and AI",
+        "B Tech Civil Engineering"
+      ]
+    },
+    "science": {
+      "Dr.G.Y.PathrikarCollegeOfComputerScienceAndInformationTechnology": [
+        "B Sc Hons. Computer Science",
+        "B Sc Hons. Information Technology"
+      ]
+    }
+  },
+  "postgraduate": {
+    "management": {
+      "InstituteOfManagementAndResearch": [
+        "MBA Business Analytics",
+        "MBA Finance"
+      ]
+    }
+  }
+}
