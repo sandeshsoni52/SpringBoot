@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class CourseService {
@@ -15,11 +17,14 @@ public class CourseService {
         ObjectMapper objectMapper = new ObjectMapper();
         this.courseData = objectMapper.readValue(
                 Paths.get("src/main/resources/allcourses.json").toFile(),
-                CourseData.class
-        );
+                CourseData.class);
     }
 
     public CourseData getCourses() {
         return courseData;
+    }
+
+    public List<String> getInstitutes(String category, String faculty) {
+        return new ArrayList<>(courseData.getCategories().get(category).get(faculty).keySet());
     }
 }

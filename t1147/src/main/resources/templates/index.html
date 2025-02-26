@@ -15,7 +15,7 @@
                 fetchInstitute(document.getElementById("levelDropdown").value, this.value);
             });
 
-            document.getElementById("instituteDropdown").addEventListener("change", function() {
+            document.getElementById("facultyDropdown").addEventListener("change", function() {
                 fetchDegree(document.getElementById("levelDropdown").value, this.value);
             });
         });
@@ -47,7 +47,7 @@
 
         function fetchInstitute(category, faculty) {
             if (!category || !faculty) return;
-            fetch(`/api/courses/courses/${category}/${faculty}`)
+            fetch(`/api/courses/institutes/${category}/${faculty}`)
                 .then(response => response.json())
                 .then(data => {
                     let dropdown = document.getElementById("instituteDropdown");
@@ -58,9 +58,9 @@
                 });
         }
 
-        function fetchDegree(category, faculty, institute) {
+        function fetchDegree(category, faculty) {
             if (!category || !faculty) return;
-            fetch(`/api/courses/courses/${category}/${faculty}/${institute}`)
+            fetch(`/api/courses/courses/${category}/${faculty}`)
                 .then(response => response.json())
                 .then(data => {
                     let dropdown = document.getElementById("degreeDropdown");
@@ -75,7 +75,7 @@
 </head>
 
 <body>
-<h2>Dynamic Dropdown1410</h2>
+<h2>Dynamic Dropdown1442</h2>
 
 <select id="levelDropdown"><option>Select Level</option></select>
 <select id="facultyDropdown"><option>Select Faculty</option></select>
