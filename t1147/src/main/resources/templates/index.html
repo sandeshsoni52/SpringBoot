@@ -58,9 +58,9 @@
                 });
         }
 
-        function fetchDegree(category, faculty) {
-            if (!category || !faculty) return;
-            fetch(`/api/courses/courses/${category}/${faculty}`)
+        function fetchDegree(category, faculty, institute) {
+            if (!category || !faculty || !institute) return;
+            fetch(`/api/courses/courses/${category}/${faculty}/${institute}`)
                 .then(response => response.json())
                 .then(data => {
                     let dropdown = document.getElementById("degreeDropdown");
@@ -71,11 +71,23 @@
                 });
         }
 
+        // function fetchDegree(category, faculty) {
+        //     if (!category || !faculty) return;
+        //     fetch(`/api/courses/courses/${category}/${faculty}`)
+        //         .then(response => response.json())
+        //         .then(data => {
+        //             let dropdown = document.getElementById("degreeDropdown");
+        //             dropdown.innerHTML = `<option value="">Select DEGREE</option>`;
+        //             data.forEach(degree => {
+        //                 dropdown.innerHTML += `<option value="${degree}">${degree}</option>`;
+        //             });
+        //         });
+        // }
     </script>
 </head>
 
 <body>
-<h2>Dynamic Dropdown1442</h2>
+<h2>Dynamic Dropdown1450</h2>
 
 <select id="levelDropdown"><option>Select Level</option></select>
 <select id="facultyDropdown"><option>Select Faculty</option></select>
