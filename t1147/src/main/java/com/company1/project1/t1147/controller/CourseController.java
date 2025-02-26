@@ -3,7 +3,6 @@ package com.company1.project1.t1147.controller;
 import com.company1.project1.t1147.service.CourseService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,15 +35,20 @@ public class CourseController {
     /**
      * Get institutes based on level and faculty.
      */
-    
-
-    /**
-     * Get degrees_mixture based on level and faculty.
-     */
     @GetMapping("/courses/{category}/{faculty}")
     public List<String> getCourses(@PathVariable String category, @PathVariable String faculty) {
-        return new ArrayList<>(courseService.getCourses().getCategories().get(category).get(faculty).keySet());
+        return courseService.getCourses().getCategories().get(category).get(faculty).keySet().stream().toList();
     }
+
+    // /**
+    //  * Get degrees_mixture based on level and faculty.
+    //  */
+    // @GetMapping("/courses/{category}/{faculty}")
+    // public List<String> getCourses(@PathVariable String category, @PathVariable String faculty) {
+    //     return courseService.getCourses().getCategories().get(category).get(faculty).values().stream()
+    //             .flatMap(List::stream)
+    //             .collect(Collectors.toList());
+    // }
 
     /**
      * Get degrees based on level, faculty and institute.
