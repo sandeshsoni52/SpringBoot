@@ -4,19 +4,19 @@
 <head>
     <title>Dynamic Dropdown</title>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             fetchLevel();
 
-            document.getElementById("levelDropdown").addEventListener("change", function() {
+            document.getElementById("levelDropdown").addEventListener("change", function () {
                 fetchFaculty(this.value);
             });
 
-            document.getElementById("facultyDropdown").addEventListener("change", function() {
+            document.getElementById("facultyDropdown").addEventListener("change", function () {
                 fetchInstitute(document.getElementById("levelDropdown").value, this.value);
             });
 
-            document.getElementById("facultyDropdown").addEventListener("change", function() {
-                fetchDegree(document.getElementById("levelDropdown").value, this.value);
+            document.getElementById("instituteDropdown").addEventListener("change", function () {
+                fetchDegree(document.getElementById("levelDropdown").value, document.getElementById("facultyDropdown").value, this.value);
             });
         });
 
@@ -87,12 +87,21 @@
 </head>
 
 <body>
-<h2>Dynamic Dropdown1450</h2>
+    <h2>Dynamic Dropdown1459</h2>
 
-<select id="levelDropdown"><option>Select Level</option></select>
-<select id="facultyDropdown"><option>Select Faculty</option></select>
-<select id="instituteDropdown"><option>Select Institute</option></select>
-<select id="degreeDropdown"><option>Select Degree</option></select>
+    <select id="levelDropdown">
+        <option>Select Level</option>
+    </select>
+    <select id="facultyDropdown">
+        <option>Select Faculty</option>
+    </select>
+    <select id="instituteDropdown">
+        <option>Select Institute</option>
+    </select>
+    <select id="degreeDropdown">
+        <option>Select Degree</option>
+    </select>
 
 </body>
+
 </html>

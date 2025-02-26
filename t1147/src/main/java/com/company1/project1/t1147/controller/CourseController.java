@@ -46,25 +46,25 @@ public class CourseController {
         return courseService.getInstitutes(category, faculty);
     }
 
-    /**
-     * Get degrees_mixture based on level and faculty.
-     */
-    @GetMapping("/courses/{category}/{faculty}")
-    public List<String> getCourses(@PathVariable String category, @PathVariable String faculty) {
-        return courseService.getCourses().getCategories().get(category).get(faculty).values().stream()
-                .flatMap(List::stream)
-                .collect(Collectors.toList());
-    }
-
     // /**
-    // * Get degrees based on level, faculty and institute.
-    // */
-    // @GetMapping("/courses/{category}/{faculty}/{institute}")
-    // public List<String> getCourses(@PathVariable String category, @PathVariable
-    // String faculty,
-    // @PathVariable String institute) {
-    // return
-    // courseService.getCourses().getCategories().get(category).get(faculty).get(institute).stream()
-    // .collect(Collectors.toList());
+    //  * Get degrees_mixture based on level and faculty.
+    //  */
+    // @GetMapping("/courses/{category}/{faculty}")
+    // public List<String> getCourses(@PathVariable String category, @PathVariable String faculty) {
+    //     return courseService.getCourses().getCategories().get(category).get(faculty).values().stream()
+    //             .flatMap(List::stream)
+    //             .collect(Collectors.toList());
     // }
+
+    /**
+    * Get degrees based on level, faculty and institute.
+    */
+    @GetMapping("/courses/{category}/{faculty}/{institute}")
+    public List<String> getCourses(@PathVariable String category, @PathVariable
+    String faculty,
+    @PathVariable String institute) {
+    return
+    courseService.getCourses().getCategories().get(category).get(faculty).get(institute).stream()
+    .collect(Collectors.toList());
+    }
 }
