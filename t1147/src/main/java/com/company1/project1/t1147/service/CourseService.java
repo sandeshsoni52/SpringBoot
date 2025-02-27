@@ -11,20 +11,20 @@ import java.util.List;
 
 @Service
 public class CourseService {
-    private final CourseData courseData;
+    private final CourseData degreeData;
 
     public CourseService() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        this.courseData = objectMapper.readValue(
+        this.degreeData = objectMapper.readValue(
                 Paths.get("src/main/resources/allcourses.json").toFile(),
                 CourseData.class);
     }
 
     public CourseData getCourses() {
-        return courseData;
+        return degreeData;
     }
 
-    public List<String> getInstitutes(String category, String faculty) {
-        return new ArrayList<>(courseData.getLevels().get(category).get(faculty).keySet());
+    public List<String> getInstitutes(String level, String faculty) {
+        return new ArrayList<>(degreeData.getLevels().get(level).get(faculty).keySet());
     }
 }
