@@ -20,7 +20,7 @@ public class CourseService {
                 CourseData.class);
     }
 
-    public CourseData getCourses() {
+    public CourseData getDegrees() {
         return degreeData;
     }
 
