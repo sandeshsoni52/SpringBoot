@@ -25,6 +25,6 @@ public class CourseService {
     }
 
     public List<String> getInstitutes(String category, String faculty) {
-        return new ArrayList<>(courseData.getCategories().get(category).get(faculty).keySet());
+        return new ArrayList<>(courseData.getLevels().get(category).get(faculty).keySet());
     }
 }

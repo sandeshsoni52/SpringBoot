@@ -20,8 +20,8 @@ public class CourseController {
      * Get all available levels.
      */
     @GetMapping("/levels")
-    public List<String> getCategories() {
-        return courseService.getCourses().getCategories().keySet().stream().toList();
+    public List<String> getLevels() {
+        return courseService.getCourses().getLevels().keySet().stream().toList();
     }
 
     /**
@@ -29,7 +29,7 @@ public class CourseController {
      */
     @GetMapping("/faculties/{category}")
     public List<String> getFaculties(@PathVariable String category) {
-        return courseService.getCourses().getCategories().get(category).keySet().stream().toList();
+        return courseService.getCourses().getLevels().get(category).keySet().stream().toList();
     }
 
     // /**
@@ -39,7 +39,7 @@ public class CourseController {
     // public List<String> getCourses(@PathVariable String category, @PathVariable
     // String faculty) {
     // return
-    // courseService.getCourses().getCategories().get(category).get(faculty).keySet().stream().toList();
+    // courseService.getCourses().getLevels().get(category).get(faculty).keySet().stream().toList();
     // }
     @GetMapping("/institutes/{category}/{faculty}")
     public List<String> getInstitutes(@PathVariable String category, @PathVariable String faculty) {
@@ -51,7 +51,7 @@ public class CourseController {
     //  */
     // @GetMapping("/courses/{category}/{faculty}")
     // public List<String> getCourses(@PathVariable String category, @PathVariable String faculty) {
-    //     return courseService.getCourses().getCategories().get(category).get(faculty).values().stream()
+    //     return courseService.getCourses().getLevels().get(category).get(faculty).values().stream()
     //             .flatMap(List::stream)
     //             .collect(Collectors.toList());
     // }
@@ -64,7 +64,7 @@ public class CourseController {
     String faculty,
     @PathVariable String institute) {
     return
-    courseService.getCourses().getCategories().get(category).get(faculty).get(institute).stream()
+    courseService.getCourses().getLevels().get(category).get(faculty).get(institute).stream()
     .collect(Collectors.toList());
     }
 }
