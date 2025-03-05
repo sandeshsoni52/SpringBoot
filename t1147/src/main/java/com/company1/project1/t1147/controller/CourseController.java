@@ -61,9 +61,7 @@ public class CourseController {
     * Get degrees based on level, faculty and institute.
     */
     @GetMapping("/courses/{level}/{faculty}/{institute}")
-    public List<String> getDegrees(@PathVariable String level, @PathVariable
-    String faculty,
-    @PathVariable String institute) {
+    public List<String> getDegrees(@PathVariable String level, @PathVariable String faculty, @PathVariable String institute) {
     return
             new ArrayList<>(courseService.getDegrees().getLevels().get(level).get(faculty).get(institute));
     }
