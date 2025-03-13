@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person Details</title>
+    <script>
+        async function fetchData() {
+            try {
+                let response = await fetch('http://localhost:8080/persons/13');
+                let data = await response.json();
+                
+                document.getElementById('name').innerText = data.name;
+                document.getElementById('email').innerText = data.email;
+                document.getElementById('selfLink').href = data._links.self.href;
+                document.getElementById('personLink').href = data._links.person.href;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+    </script>
+</head>
+<body onload="fetchData()">
+    <h2>Person Details</h2>
+    <p><strong>Name:</strong> <span id="name"></span></p>
+    <p><strong>Email:</strong> <span id="email"></span></p>
+    <p><strong>Self Link:</strong> <a id="selfLink" target="_blank">View</a></p>
+    <p><strong>Person Link:</strong> <a id="personLink" target="_blank">View</a></p>
+</body>
+</html>
