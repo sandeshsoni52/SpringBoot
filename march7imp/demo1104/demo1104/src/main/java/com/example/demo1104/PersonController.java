@@ -5,9 +5,7 @@ import com.example.demo1104.repo.PersonRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
 
-//@RequestMapping("/persons")
 @CrossOrigin(origins = "*")
 @RestController
 public class PersonController {
@@ -20,9 +18,4 @@ public class PersonController {
         System.out.println("Received Person: " + person);
         repo.save(person);
     }
-
-//    @GetMapping("/{id}")
-//    public Optional<Person> getPerson(@PathVariable Long id){
-//        return repo.findById(id);
-//    }
 }
