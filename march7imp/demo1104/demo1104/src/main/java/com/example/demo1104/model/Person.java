@@ -15,9 +15,9 @@ public class  Person {
     @JsonProperty("name")
     private String name;
 
-    @Column(name = "email")
-    @JsonProperty("email")
-    private String email;
+    @Column(name = "middle")
+    @JsonProperty("middle")
+    private String middle;
 
     @Override
     public String toString() {
